@@ -4,6 +4,7 @@
   location: @peak.location,
   elevation: @peak.elevation,
   description: @peak.description,
+  images: @peak.images,
   created_at: @peak.created_at,
   updated_at: @peak.updated_at,
 }
