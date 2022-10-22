@@ -5,4 +5,5 @@ Rails.application.routes.draw do
   # root "articles#index"
 
   get "/peaks" => "peaks#index"
+  get "/peaks/:id" => "peaks#show"
 end
