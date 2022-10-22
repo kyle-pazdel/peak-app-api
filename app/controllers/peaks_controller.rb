@@ -20,6 +20,20 @@ class PeaksController < ApplicationController
     end
   end
 
+  def update
+    @peak.name = params["name"] || @peak.name
+    @peak.location = params["location"] || @peak.location
+    @peak.elevation = params["elevation"] || @peak.elevation
+    @peak.description = params["description"] || @peak.description
+    @peak.save
+    render template: "peaks/show"
+  end
+
+  def destroy
+    @peak.destroy
+    render template: "peaks/index"
+  end
+
   private
 
   def set_peak
@@ -27,6 +41,6 @@ class PeaksController < ApplicationController
   end
 
   def peak_params
-    params.require(:peak).permit(:id, :name, :location, :elevation, :description)
+    params.require(:peak).permit(:name, :location, :elevation, :description)
   end
 end
