@@ -51,3 +51,5 @@ gem "rack-cors"
 gem 'jb'
 
 gem 'jwt'
+
+gem 'seed_dump'
