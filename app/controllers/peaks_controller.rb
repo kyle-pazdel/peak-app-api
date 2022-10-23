@@ -1,5 +1,5 @@
 class PeaksController < ApplicationController
-  before_action :set_peak
+  # before_action :set_peak
 
   def index
     @peaks = Peak.all
@@ -7,6 +7,7 @@ class PeaksController < ApplicationController
   end
 
   def show
+    @peak = Peak.find_by(id: params[:id])
     render template: "peaks/show"
   end
 
@@ -37,7 +38,7 @@ class PeaksController < ApplicationController
   private
 
   def set_peak
-    @peak = Peak.find(params[:id])
+    # @peak = Peak.find(params[:id])
   end
 
   def peak_params
