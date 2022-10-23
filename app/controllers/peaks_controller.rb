@@ -12,9 +12,9 @@ class PeaksController < ApplicationController
   end
 
   def create
-    @peak = Peak.new(peak_params)
+    @peak = Peak.new(name: params[:name], description: params[:description], location: params[:location], elevation: params[:elevation])
     if @peak.save
-      Image.create(url: params["image_url"], peak_id: @peak.id)
+      Image.create(url: params["image"], peak_id: @peak.id)
       render template: "peak/show"
     else
       render json: { errors: @peak.errors.full_messages }, status: :unprocessable_entity
@@ -42,6 +42,6 @@ class PeaksController < ApplicationController
   end
 
   def peak_params
-    params.require(:peak).permit(:name, :location, :elevation, :description)
+    # params.require(:peak).permit(:name, :location, :elevation, :description, :image)
   end
 end
