@@ -15,7 +15,7 @@ class PeaksController < ApplicationController
     @peak = Peak.new(name: params[:name], description: params[:description], location: params[:location], elevation: params[:elevation])
     if @peak.save
       Image.create(url: params["image"], peak_id: @peak.id)
-      render template: "peak/show"
+      render template: "peaks/show"
     else
       render json: { errors: @peak.errors.full_messages }, status: :unprocessable_entity
     end
