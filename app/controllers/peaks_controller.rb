@@ -32,8 +32,9 @@ class PeaksController < ApplicationController
   end
 
   def destroy
+    @peak = Peak.find_by(id: params["id"])
     @peak.destroy
-    render template: "peaks/index"
+    # render template: "peaks/index"
   end
 
   private
