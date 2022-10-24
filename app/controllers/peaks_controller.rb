@@ -22,6 +22,7 @@ class PeaksController < ApplicationController
   end
 
   def update
+    @peak = Peak.find_by(id: params["id"])
     @peak.name = params["name"] || @peak.name
     @peak.location = params["location"] || @peak.location
     @peak.elevation = params["elevation"] || @peak.elevation
